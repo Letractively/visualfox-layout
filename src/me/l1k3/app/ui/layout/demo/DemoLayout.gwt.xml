@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="me.l1k3.core.Core" />
+	<inherits name="me.l1k3.css.framework.blueprint.Blueprint" />
+	<inherits name="me.l1k3.ui.layout.Layout" />
+	<entry-point class="me.l1k3.app.ui.layout.demo.client.Demo" />
+	<source path="client"/>
+</module>
