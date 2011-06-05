@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
 	<inherits name="com.google.gwt.user.User" />
-	<inherits name="me.l1k3.fx.FXOptimized" />
+	<inherits name="me.l1k3.core.CoreOptimized" />
 	<source path="client"/>
 </module>

@@ -11,7 +11,7 @@
   			height:100% !important;
   			width:100% !important;
   			overflow:hidden !important;
-  			background-color: #000 !important;
+  			background-color: #555 !important;
   		}
   		#root {
   			visibility:hidden;
@@ -20,6 +20,14 @@
   			left:20%;
   			width:60%;
   			height:60%;
+  		}
+  		#toolbar {
+  			bottom:0;
+  			position:absolute;
+  			z-index:400;
+  		}
+  		.overflow {
+  			overflow:hidden;
   		}
   		.center {
   			position:absolute;
@@ -36,8 +44,7 @@
   			z-index: 100;
   			font-size:200%;
   			white-space:nowrap;
-  			padding:0 10px;
-  			opacity: 0.5;
+  			opacity: 0.4;
   		}
   		.label {
   			float:left;
@@ -46,17 +53,27 @@
   			font-size:100%;
   			color: white;
   			background-color:green;
-  			z-index: 200;
+  			z-index: 101;
   			white-space:nowrap;
   			padding: 0px 2px;
+  		}
+  		#center .inside {
+  			opacity: 1.0;
+  			z-index: 200;
+  		}
+  		#center .label {
+  			opacity: 1.0;
+  			background-color:blue;
+  			z-index: 201;
   		}
   	</style>
   </head>
   <body>
+  	<div id="toolbar"></div>
   	<div id="root">
 	  	<div id="center" class="center">
-	  		<span class="inside"><img src="images/visualfox2_128x128x32.png" width="128" height="128"></span>
-	  		<span class="label">CENTER</span>
+	  		<span id="fox" class="inside"><img src="images/visualfox2_128x128x32.png" width="128" height="128"></span>
+	  		<span id="foxlabel" class="label">OH HI!</span>
 	  	</div>
 	  	<div id="top" class="center">
 	  		<span class="inside"><img src="images/visualfox2_128x128x32.png" width="128" height="128"></span>
