@@ -76,7 +76,7 @@ public class Demo implements EntryPoint {
             @Override
             public void execute() {
                 //DOM.getElementById("root").getStyle().setVisibility(Style.Visibility.VISIBLE);
-                FXFade.range(DOM.getElementById("root"), 1, 0).hide().show(1000);
+                FXFade.smartRange(DOM.getElementById("root"), 1, 0).hide().show(1000);
             }
         });
         
