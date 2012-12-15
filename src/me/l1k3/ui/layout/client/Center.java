@@ -17,6 +17,7 @@
  */
 package me.l1k3.ui.layout.client;
 
+import me.l1k3.core.client.Core;
 import me.l1k3.ui.layout.client.inter.Layout;
 
 import com.google.gwt.dom.client.Element;
@@ -74,9 +75,12 @@ public class Center implements Layout {
     public final void initElement(Element element) {
         Style style = element.getStyle();
         
-        style.setProperty("float", "left");
-        style.setProperty("display", "block");
-        style.setProperty("position", "absolute");
+        //style.setProperty("float", "left");
+        //style.setProperty("display", "block");
+        //style.setProperty("position", "absolute");
+        
+        style.setProperty("display", "inline-block");
+        style.setProperty("verticalAlign", "top");
     }
     
     @Override
@@ -175,7 +179,7 @@ public class Center implements Layout {
     }
     
     public final static void layout(Element panel, Element element, Horizontal positionX, Vertical positionY, double anchorX, double anchorY) {
-        layout(panel, element.getStyle(), element.getOffsetWidth(), element.getOffsetHeight(), positionX, positionY, anchorX, anchorY);
+        layout(panel, element.getStyle(), (int)Core.getOuterWidth(element), (int)Core.getOuterHeight(element), positionX, positionY, anchorX, anchorY);
     }
     
     public final static void layout(Element panel, Style style, int width, int height, Horizontal positionX, Vertical positionY, double anchorX, double anchorY) {
@@ -184,7 +188,7 @@ public class Center implements Layout {
     }
     
     public final static int getPositionX(Element panel, Element element, Horizontal position, double anchor) {
-        return getPositionX(panel, element.getOffsetWidth(), position, anchor);
+        return getPositionX(panel, (int)Core.getOuterWidth(element), position, anchor);
     }
     
     public final static int getPositionX(Element panel, int width, Horizontal position, double anchor) {
@@ -207,7 +211,7 @@ public class Center implements Layout {
     }
     
     public final static int getPositionY(Element panel, Element element, Vertical position, double anchor) {
-        return getPositionY(panel, element.getOffsetHeight(), position, anchor);
+        return getPositionY(panel, (int)Core.getOuterHeight(element), position, anchor);
     }
     
     public final static int getPositionY(Element panel, int height, Vertical position, double anchor) {
