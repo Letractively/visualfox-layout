@@ -45,14 +45,14 @@ public class CenterAnimation extends Center {
     public void setPosition(Horizontal positionX, Vertical positionY) {    
         set(positionX, positionY);
         effect.cancel();
-        effect.to(getPositionX(element), getPositionY(element));
+        effect.to((int)getPositionX(element), (int)getPositionY(element));
         effect.animate(500);
     }
     
     public void setPosition(Horizontal positionX, Vertical positionY, double anchorX, double anchorY) {    
         set(positionX, positionY, anchorX, anchorY);
         effect.cancel();
-        effect.to(getPositionX(element), getPositionY(element));
+        effect.to((int)getPositionX(element), (int)getPositionY(element));
         effect.animate(500);
     }
 }

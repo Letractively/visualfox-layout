@@ -48,7 +48,7 @@ public class CenterEx extends Center {
     }
     
     public void layoutAnimated(Element element) {
-        FXPosition.to(element, getPositionX(element), getPositionY(element)).animate(500);
+        FXPosition.to(element, (int)getPositionX(element), (int)getPositionY(element)).animate(500);
     }
     
     //- - -

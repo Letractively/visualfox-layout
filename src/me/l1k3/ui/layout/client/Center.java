@@ -128,19 +128,19 @@ public class Center implements Layout {
         return panel;
     }
     
-    protected final int getPositionX(int width) {
+    protected final double getPositionX(double width) {
         return getPositionX(panel, width, positionX, anchorX);
     }
     
-    protected final int getPositionX(Element element) {
+    protected final double getPositionX(Element element) {
         return getPositionX(panel, element, positionX, anchorX);
     }
     
-    protected final int getPositionY(int height) {
+    protected final double getPositionY(double height) {
         return getPositionY(panel, height, positionY, anchorY);
     }
     
-    protected final int getPositionY(Element element) {
+    protected final double getPositionY(Element element) {
         return getPositionY(panel, element, positionY, anchorY);
     }
     
@@ -179,30 +179,30 @@ public class Center implements Layout {
     }
     
     public final static void layout(Element panel, Element element, Horizontal positionX, Vertical positionY, double anchorX, double anchorY) {
-        layout(panel, element.getStyle(), (int)Core.getOuterWidth(element), (int)Core.getOuterHeight(element), positionX, positionY, anchorX, anchorY);
+        layout(panel, element.getStyle(), Core.getOuterWidth(element), Core.getOuterHeight(element), positionX, positionY, anchorX, anchorY);
     }
     
-    public final static void layout(Element panel, Style style, int width, int height, Horizontal positionX, Vertical positionY, double anchorX, double anchorY) {
+    public final static void layout(Element panel, Style style, double width, double height, Horizontal positionX, Vertical positionY, double anchorX, double anchorY) {
         style.setProperty("left", getPositionX(panel, width, positionX, anchorX)+"px");
         style.setProperty("top", getPositionY(panel, height, positionY, anchorY)+"px");
     }
     
-    public final static int getPositionX(Element panel, Element element, Horizontal position, double anchor) {
-        return getPositionX(panel, (int)Core.getOuterWidth(element), position, anchor);
+    public final static double getPositionX(Element panel, Element element, Horizontal position, double anchor) {
+        return getPositionX(panel, Core.getOuterWidth(element), position, anchor);
     }
     
-    public final static int getPositionX(Element panel, int width, Horizontal position, double anchor) {
+    public final static double getPositionX(Element panel, double width, Horizontal position, double anchor) {
         switch (position)
         {
             case LEFT:
                 if(anchor>0)
-                return -(int)(width*anchor);
+                return -width*anchor;
             break;
             case CENTER:
-                return (int)((panel.getClientWidth()-width)/2.0);
+                return (panel.getClientWidth()-width)/2.0;
             case RIGHT:
                 if(anchor>0)
-                return (int)(panel.getClientWidth()-(width*(1.0-anchor)));
+                return panel.getClientWidth()-(width*(1.0-anchor));
                 
                 return panel.getClientWidth()-width;
         }
@@ -210,21 +210,21 @@ public class Center implements Layout {
         return 0;
     }
     
-    public final static int getPositionY(Element panel, Element element, Vertical position, double anchor) {
-        return getPositionY(panel, (int)Core.getOuterHeight(element), position, anchor);
+    public final static double getPositionY(Element panel, Element element, Vertical position, double anchor) {
+        return getPositionY(panel, Core.getOuterHeight(element), position, anchor);
     }
     
-    public final static int getPositionY(Element panel, int height, Vertical position, double anchor) {
+    public final static double getPositionY(Element panel, double height, Vertical position, double anchor) {
         switch (position) {
             case TOP:
                 if(anchor>0)
-                return -(int)(height*anchor);
+                return -height*anchor;
             break;
             case MIDDLE:
-                return (int)((panel.getClientHeight()-height)/2.0);
+                return (panel.getClientHeight()-height)/2.0;
             case BOTTOM:
                 if(anchor>0)
-                return (int)(panel.getClientHeight()-(height*(1.0-anchor)));
+                return panel.getClientHeight()-(height*(1.0-anchor));
 
                 return panel.getClientHeight()-height;
         }
